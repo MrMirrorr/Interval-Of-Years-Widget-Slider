@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useYearsInterval } from '../../hooks';
 import styled from 'styled-components';
 
 interface YearsIntervalProps {
@@ -12,10 +13,16 @@ const YearsIntervalContainer: FC<YearsIntervalProps> = ({
 	minYear,
 	maxYear,
 }) => {
+	const { minYearRef, maxYearRef } = useYearsInterval(minYear, maxYear);
+
 	return (
 		<div className={className}>
-			<span className="min">{minYear}</span>
-			<span className="max">{maxYear}</span>
+			<span className="min" ref={minYearRef}>
+				{minYear}
+			</span>
+			<span className="max" ref={maxYearRef}>
+				{maxYear}
+			</span>
 		</div>
 	);
 };

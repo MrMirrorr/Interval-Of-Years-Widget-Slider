@@ -1,6 +1,7 @@
 export * from './circle-with-points/CircleWithPoints'
 export * from './control-button/ControlButton'
 export * from './control-buttons/ControlButtons'
+export * from './current-title/CurrentTitle'
 export * from './main-layout/MainLayout'
 export * from './main-title/MainTitle'
 export * from './point/Point'

@@ -12,6 +12,7 @@ export const MainLayout = styled.div`
 	border-left: 1px solid rgba(66, 86, 122, 0.1);
 	border-right: 1px solid rgba(66, 86, 122, 0.1);
 	position: relative;
+	user-select: none;
 
 	&::before {
 		display: block;

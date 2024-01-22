@@ -1,23 +1,15 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { DataEntry } from './models/DataModel';
 import {
 	CircleWithPoints,
 	ControlButtons,
+	CurrentTitle,
 	MainLayout,
 	MainTitle,
 	Slider,
 	YearsInterval,
-} from '../components';
-
-interface Item {
-	year: number;
-	description: string;
-}
-
-interface DataEntry {
-	id: string;
-	title: string;
-	items: Item[];
-}
+} from './components';
+import { useCurrentData } from './hooks/useCurrentData';
 
 interface IntervalOfYearsWidgetProps {
 	initialData: DataEntry[];
@@ -26,33 +18,45 @@ interface IntervalOfYearsWidgetProps {
 export const IntervalOfYearsWidget: FC<IntervalOfYearsWidgetProps> = ({
 	initialData,
 }) => {
-	const pointsCount = initialData.length;
-	if (pointsCount > 6) {
-		throw new Error('initialData не может содержать более 6 элементов');
-	}
+	const { state, actions } = useCurrentData(initialData);
 
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const [isRotating, setIsRotating] = useState(false);
+	const {
+		pointsCount,
+		currentIndex,
+		isRotating,
+		actualTitle,
+		currentTitleForRender,
+		actualItems,
+		currentItemsForRender,
+		minYear,
+		maxYear,
+	} = state;
 
-	const incrementCurrentIndex = () => {
-		setCurrentIndex((prev) => prev + 1);
-	};
-
-	const decrementCurrentIndex = () => {
-		setCurrentIndex((prev) => prev - 1);
-	};
+	const {
+		setCurrentIndex,
+		setIsRotating,
+		setCurrentTitleForRender,
+		setCurrentItemsForRender,
+		incrementCurrentIndex,
+		decrementCurrentIndex,
+	} = actions;
 
 	return (
 		<MainLayout>
 			<MainTitle>Исторические даты</MainTitle>
+			<CurrentTitle title={currentTitleForRender} isRotating={isRotating} />
 			<CircleWithPoints
 				pointsCount={pointsCount}
 				currentIndex={currentIndex}
 				setCurrentIndex={setCurrentIndex}
 				isRotating={isRotating}
 				setIsRotating={setIsRotating}
+				title={actualTitle}
+				setCurrentTitle={setCurrentTitleForRender}
+				items={actualItems}
+				setCurrentItems={setCurrentItemsForRender}
 			/>
-			<YearsInterval minYear={1999} maxYear={2005} />
+			<YearsInterval minYear={minYear} maxYear={maxYear} />
 			<ControlButtons
 				incrementCurrentIndex={incrementCurrentIndex}
 				decrementCurrentIndex={decrementCurrentIndex}
@@ -60,7 +64,7 @@ export const IntervalOfYearsWidget: FC<IntervalOfYearsWidgetProps> = ({
 				currentIndex={currentIndex}
 				pointsCount={pointsCount}
 			/>
-			<Slider />
+			<Slider items={currentItemsForRender} isRotating={isRotating} />
 		</MainLayout>
 	);
 };
