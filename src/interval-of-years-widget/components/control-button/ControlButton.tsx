@@ -1,5 +1,6 @@
 import { FC, MouseEventHandler, ReactNode } from 'react';
 import styled from 'styled-components';
+import { media } from '../../styles/media';
 
 interface ControlButtonProps {
 	className?: string;
@@ -32,6 +33,11 @@ export const ControlButton = styled(ControlButtonContainer)`
 	background-color: transparent;
 	cursor: pointer;
 	transition: background 0.2s linear;
+
+	${media.tablet`
+		width: 25px;
+		height: 25px;
+	`}
 
 	&:disabled {
 		opacity: 0.5;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../styles/media';
 
 export const MainTitle = styled.h1`
 	max-width: 353px;
@@ -11,6 +12,25 @@ export const MainTitle = styled.h1`
 	top: 50px;
 	left: 0;
 	z-index: 1;
+
+	${media.desktop`
+		padding-left: 30px;
+		font-size: 45px;
+	`}
+
+	${media.tablet`
+		margin-bottom: 56px;
+		padding-left: 20px;
+		font-size: 40px;
+		position: relative;
+		top: 0;
+		align-self: flex-start;
+	`}
+
+	${media.mobile`
+		max-width: 125px;
+		font-size: 20px;
+	`}
 
 	&::before {
 		content: '';
@@ -26,5 +46,9 @@ export const MainTitle = styled.h1`
 		position: absolute;
 		left: 0;
 		z-index: 1;
+
+		${media.mobile`
+			display: none;
+		`}
 	}
 `;

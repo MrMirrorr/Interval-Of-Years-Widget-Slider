@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useYearsInterval } from '../../hooks';
 import styled from 'styled-components';
+import { media } from '../../styles/media';
 
 interface YearsIntervalProps {
 	className?: string;
@@ -38,9 +39,31 @@ export const YearsInterval = styled(YearsIntervalContainer)`
 	letter-spacing: -4px;
 	line-height: 0.8;
 
+	${media.largeDesktop`
+		font-size: 180px;
+	`}
+
+	${media.desktop`
+		font-size: 135px;
+	`}
+
+	${media.tablet`
+		font-size: 105px;
+		position: static;
+		transform: translate(0);
+	`}
+
+	${media.mobile`
+		font-size: 56px;
+	`}
+
 	.min {
 		margin-right: 70px;
 		color: #5d5fef;
+
+		${media.tablet`
+			margin-right: 30px;
+		`}
 	}
 
 	.max {

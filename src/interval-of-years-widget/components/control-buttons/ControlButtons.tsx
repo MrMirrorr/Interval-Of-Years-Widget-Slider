@@ -2,6 +2,7 @@ import { FC, MouseEventHandler } from 'react';
 import { normalizeNumber } from './utils/normalizeNumber';
 import { ControlButton } from '../control-button/ControlButton';
 import styled from 'styled-components';
+import { media } from '../../styles/media';
 
 interface ControlButtonsProps {
 	className?: string;
@@ -70,13 +71,38 @@ const ControlButtonsContainer: FC<ControlButtonsProps> = ({
 export const ControlButtons = styled(ControlButtonsContainer)`
 	align-self: flex-start;
 
+	${media.tablet`
+		position: absolute;
+		left: 0;
+		bottom: 13px;
+		z-index: 2;
+	`}
+
+	${media.mobile`
+		left: 20px;
+	`}
+
 	.counter {
 		margin-bottom: 20px;
 		font-size: 14px;
+
+		${media.tablet`
+			margin-bottom: 17px;
+		`}
 	}
 
 	.buttons {
 		display: flex;
 		gap: 20px;
+
+		${media.tablet`
+			gap: 8px;
+		`}
+
+		svg {
+			${media.tablet`
+				height: 6px;
+			`}
+		}
 	}
 `;

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useFadeInOut } from '../../hooks';
 import styled from 'styled-components';
+import { media } from '../../styles/media';
 
 interface CurrentTitleProps {
 	className?: string;
@@ -31,4 +32,13 @@ export const CurrentTitle = styled(CurrentTitleContainer)`
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 1.5;
+
+	${media.tablet`
+		top: 47%;
+		left: 0;
+	`}
+
+	${media.mobile`
+		left: 20px;
+	`}
 `;

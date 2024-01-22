@@ -4,6 +4,7 @@ import { calculatePointPosition } from './utils/calculatePointPosition';
 import { useRotation } from '../../hooks';
 import { Point } from '../point/Point';
 import styled from 'styled-components';
+import { media } from '../../styles/media';
 
 interface CircleWithPointsProps {
 	className?: string;
@@ -72,4 +73,8 @@ export const CircleWithPoints = styled(CircleWithPointsContainer)`
 	z-index: 2;
 	border: 1px solid rgba(66, 86, 122, 0.2);
 	border-radius: 50%;
+
+	${media.tablet`
+		display: none;
+	`}
 `;
