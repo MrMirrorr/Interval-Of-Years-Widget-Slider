@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Interval-Of-Years-Widget-Slider/static/css/main.bf3b8806.css",
+    "main.js": "/Interval-Of-Years-Widget-Slider/static/js/main.023720c8.js",
+    "index.html": "/Interval-Of-Years-Widget-Slider/index.html",
+    "main.bf3b8806.css.map": "/Interval-Of-Years-Widget-Slider/static/css/main.bf3b8806.css.map",
+    "main.023720c8.js.map": "/Interval-Of-Years-Widget-Slider/static/js/main.023720c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf3b8806.css",
+    "static/js/main.023720c8.js"
+  ]
+}
