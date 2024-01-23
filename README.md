@@ -42,4 +42,4 @@
 
 ## Лицензия
 
-[The MIT License](https://github.com/MrMirrorr/Interval-Of-Years-Widget-Slider/blob/master/LICENSE.md)
+[The MIT License](https://github.com/MrMirrorr/Interval-Of-Years-Widget-Slider/blob/master/LICENSE.txt)
